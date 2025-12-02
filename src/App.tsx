@@ -30,6 +30,7 @@ function App() {
               onClick={() => {
                 setCurrentPage('home');
                 window.history.pushState({}, '', '#home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 currentPage === 'home'
@@ -43,6 +44,7 @@ function App() {
               onClick={() => {
                 setCurrentPage('blog');
                 window.history.pushState({}, '', '#blog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 currentPage === 'blog'
