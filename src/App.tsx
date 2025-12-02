@@ -14,9 +14,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <nav className="container mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+    <div className="min-h-screen bg-white flex flex-col">
+      <main className="flex-grow">
+        {currentPage === 'home' ? <Home /> : <Blog />}
+      </main>
+
+      <footer className="bg-white border-t shadow-inner">
+        <nav className="container mx-auto px-4 py-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
             <span className="text-xl font-semibold text-gray-900">Ocean Park Digital</span>
             <span className="hidden md:block text-sm text-gray-500">Digital growth solutions</span>
@@ -50,11 +54,7 @@ function App() {
             </button>
           </div>
         </nav>
-      </header>
-
-      <main>
-        {currentPage === 'home' ? <Home /> : <Blog />}
-      </main>
+      </footer>
     </div>
   );
 }
