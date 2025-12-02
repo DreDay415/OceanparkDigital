@@ -38,6 +38,13 @@ h1 {
   background: linear-gradient(60deg, rgba(0,172,193,1) 0%, rgba(84,58,183,1) 100%);
 }
 
+.blog-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .parallax > use {
   animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
 }
