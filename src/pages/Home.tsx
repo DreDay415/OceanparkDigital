@@ -86,7 +86,7 @@ export function Home() {
 
       <footer className="bg-gray-50 py-12">
         <div className="container mx-auto px-4 text-center">
-          <a href="mailto:andrekirsch7@gmail.com" className="connect-btn">
+          <a href="mailto:partnerships@oceanparkdigital.com" className="connect-btn">
             Get Started Today
           </a>
           <p className="text-gray-600 mb-4">© 2024 Ocean Park Digital. All rights reserved.</p>
