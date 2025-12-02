@@ -55,6 +55,9 @@ function App() {
               Blog
             </button>
           </div>
+          <a href="/sitemap.xml" className="sr-only" aria-hidden="true" tabIndex={-1}>
+            Sitemap
+          </a>
         </nav>
       </footer>
     </div>
