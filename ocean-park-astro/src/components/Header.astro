@@ -1,0 +1,100 @@
+---
+import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
+
+const navLinks = [
+    { href: "/#services", label: "Services" },
+    { href: "/blog", label: "Blog" },
+];
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 bg-transparent">
+    <div class="container mx-auto px-6 flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold tracking-tight hover:text-cyan-400 transition-colors text-white font-display">
+            Ocean Park <span class="text-cyan-400">Digital</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            {navLinks.map(link => (
+                <a href={link.href} class="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                    {link.label}
+                </a>
+            ))}
+            
+            <ThemeToggle client:load />
+
+            <a
+                href="mailto:partnerships@oceanparkdigital.com"
+                class="px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-all hover:scale-105 active:scale-95 text-sm font-semibold backdrop-blur-sm"
+            >
+                Get Started
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white" aria-label="Toggle menu">
+            <Menu className="w-6 h-6 menu-icon" />
+            <X className="w-6 h-6 close-icon hidden" />
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-4 md:hidden shadow-2xl opacity-0 pointer-events-none -translate-y-4 transition-all duration-300">
+        {navLinks.map(link => (
+            <a href={link.href} class="mobile-link text-lg text-white font-medium">
+                {link.label}
+            </a>
+        ))}
+        <a href="mailto:partnerships@oceanparkdigital.com" class="mobile-link px-4 py-3 bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-center rounded-lg font-bold shadow-lg">
+            Get Started
+        </a>
+    </div>
+</header>
+
+<script>
+    const header = document.getElementById('main-header');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    let isMenuOpen = false;
+
+    // Scroll Effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header?.classList.remove('bg-transparent', 'py-6');
+            header?.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-white/5', 'py-4');
+        } else {
+            header?.classList.add('bg-transparent', 'py-6');
+            header?.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-white/5', 'py-4');
+        }
+    });
+
+    // Mobile Menu Toggle
+    menuBtn?.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            menu?.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+            menuIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+        } else {
+            menu?.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+            menuIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+        }
+    });
+
+    // Close menu on link click
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            isMenuOpen = false;
+            menu?.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+            menuIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+        });
+    });
+</script>

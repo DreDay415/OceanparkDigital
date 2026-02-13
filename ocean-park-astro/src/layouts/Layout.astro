@@ -1,0 +1,43 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import '@fontsource/lato/300.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
+import '@fontsource/lato/900.css';
+import StarBackground from '../components/StarBackground.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title = "Ocean Park Digital | Premium Growth Solutions",
+	description = "Ocean Park Digital offers cinematic web experiences, SEO optimization, and data-driven marketing strategies for ambitious brands."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-screen flex-col bg-slate-900 text-slate-50 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden font-sans">
+        <StarBackground />
+		<slot />
+        <script is:inline>
+            // Prevent theme flash on load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.documentElement.classList.add('cyberpunk');
+            }
+        </script>
+	</body>
+</html>

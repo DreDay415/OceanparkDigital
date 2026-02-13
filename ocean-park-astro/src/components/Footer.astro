@@ -1,0 +1,43 @@
+---
+---
+
+<footer id="main-footer" class="bg-slate-900 border-t border-white/5 py-12 text-slate-400">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <h3 class="text-2xl font-bold text-white mb-2">Ocean Park Digital</h3>
+                <p class="text-sm">Digital growth solutions for ambitious brands.</p>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="/" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="/blog" class="hover:text-cyan-400 transition-colors">Blog</a>
+                <a href="mailto:partnerships@oceanparkdigital.com" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/5 text-center text-sm text-slate-600">
+            &copy; {new Date().getFullYear()} Ocean Park Digital. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Cyberpunk Theme Overrides */
+    :global(.cyberpunk) #main-footer {
+        background-color: rgba(6, 6, 12, 0.8) !important;
+        border-top: 1px solid #00f3ff;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -4px 20px rgba(0, 243, 255, 0.15);
+    }
+    
+    :global(.cyberpunk) #main-footer h3 {
+        color: #00f3ff;
+        text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    }
+    
+    :global(.cyberpunk) #main-footer a:hover {
+        color: #ff00ff;
+        text-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
+    }
+</style>

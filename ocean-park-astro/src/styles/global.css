@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #543ab7;
+    --color-secondary: #00acc1;
+    --color-dark: #0f172a;
+
+    --font-sans: 'Lato', sans-serif;
+    --font-display: 'Lato', sans-serif;
+}
+
+/* Lenis Recommended Styles (if we use Lenis later, but for now just basic scroll behavior) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bg-brand-gradient {
+    background: linear-gradient(60deg, #543ab7 0%, #00acc1 100%);
+}
+
+body {
+    @apply bg-slate-900 text-slate-50 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden font-sans;
+}

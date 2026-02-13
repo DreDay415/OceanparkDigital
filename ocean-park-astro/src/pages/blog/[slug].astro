@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { blogPosts } from '../../lib/data';
+import { ArrowLeft } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+if (!post) {
+    return Astro.redirect('/404');
+}
+
+const { title, excerpt, category, readTime, date, content, author } = post;
+const formattedDate = new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const paragraphs = content.split('\n\n');
+
+---
+
+<Layout title={`${title} | Ocean Park Digital`} description={excerpt}>
+    <Header />
+    <article id="blog-post" class="min-h-screen pt-32 pb-24 relative bg-slate-900">
+        <div class="absolute top-0 left-0 w-full h-[60vh] bg-gradient-to-b from-purple-900/10 to-transparent pointer-events-none" />
+
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <a
+                href="/blog"
+                class="inline-flex items-center text-slate-400 hover:text-cyan-400 mb-8 transition-colors text-sm font-medium group"
+            >
+                <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Blog
+            </a>
+
+            <header class="mb-12">
+                <div class="flex flex-wrap items-center gap-4 mb-6 text-sm">
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-bold uppercase tracking-wider border border-cyan-500/20">
+                        {category}
+                    </span>
+                    <span class="text-slate-500 font-medium">
+                        {readTime} read
+                    </span>
+                    <span class="text-slate-500 font-medium ml-auto">
+                        {formattedDate}
+                    </span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-8 leading-tight">
+                    {title}
+                </h1>
+
+                <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed border-l-4 border-cyan-500 pl-6 italic">
+                    {excerpt}
+                </p>
+            </header>
+
+            <div class="prose prose-lg prose-invert max-w-none text-slate-300/90 font-light">
+                {paragraphs.map((paragraph) => (
+                    <p class="mb-8 leading-relaxed text-lg">
+                        {paragraph}
+                    </p>
+                ))}
+            </div>
+
+            <div class="mt-16 pt-12 border-t border-white/10 flex justify-between items-center">
+                <div class="text-slate-500 text-sm">
+                    Written by <span class="text-white font-medium ml-1">{author}</span>
+                </div>
+
+                <a
+                    href="/#contact"
+                    class="bg-white/5 hover:bg-white/10 text-sm px-6 py-3 rounded-full text-white transition-colors border border-white/10"
+                >
+                    Start Your Project →
+                </a>
+            </div>
+        </div>
+    </article>
+    <Footer />
+</Layout>
+
+<style>
+    /* Cyberpunk Theme Overrides */
+    :global(.cyberpunk) #blog-post {
+        background-color: transparent !important;
+    }
+</style>
