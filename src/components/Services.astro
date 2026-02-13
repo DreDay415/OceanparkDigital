@@ -1,0 +1,95 @@
+---
+import { services } from '../lib/data';
+---
+
+<section id="services" class="py-24 bg-transparent relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 to-purple-400 font-display mb-6 services-title">
+                Ahead, by Design.
+            </h2>
+            <p class="text-lg text-slate-400 theme-text-transition services-subtitle">
+                Future Proof Yourself <br />
+                <span class="text-sm uppercase tracking-widest text-cyan-500/80 legacy-tagline">Legacy Logic: Built to Overclock and Outperform</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+                <div 
+                    class="group relative p-8 rounded-2xl bg-slate-800/40 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm h-full flex flex-col service-card"
+                    style={`animation-delay: ${index * 100}ms`}
+                >
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-500">
+                            <service.icon className="w-7 h-7 text-white" />
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors font-display card-title">{service.title}</h3>
+                        <p class="text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors card-description">{service.description}</p>
+                        
+                        <div class="mt-auto space-y-4">
+                            <div class="pt-4 border-t border-white/5">
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-400/60 mb-2">Core Skills</p>
+                                <p class="text-sm text-slate-300 font-medium card-skills">{service.skills}</p>
+                            </div>
+                            
+                            <div class="p-3 rounded-lg bg-black/20 border border-white/5">
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400/60 mb-1">Enterprise Metric</p>
+                                <p class="text-xs text-slate-400 italic card-metric">{service.metric}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cyberpunk Overrides */
+    :global(.cyberpunk) .services-title {
+        color: #fc199a !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+        text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #fc199a, 0 0 2px #fc199a !important;
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+    }
+
+    :global(.cyberpunk) .services-subtitle {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+    }
+
+    :global(.cyberpunk) .legacy-tagline {
+        color: #61e2ff !important;
+        text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633 !important;
+    }
+
+    :global(.cyberpunk) .service-card {
+        background: rgba(32, 9, 51, 0.6) !important;
+        border: 1px solid rgba(252, 25, 154, 0.2) !important;
+        border-radius: 4px !important;
+    }
+
+    :global(.cyberpunk) .card-title {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+        color: #61e2ff !important;
+    }
+
+    :global(.cyberpunk) .card-description,
+    :global(.cyberpunk) .card-skills,
+    :global(.cyberpunk) .card-metric {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+    }
+</style>

@@ -36,3 +36,19 @@ html {
 body {
     @apply bg-slate-900 text-slate-50 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden font-sans;
 }
+
+/* Cyberpunk specific styles (overrides when .cyberpunk is on html) */
+.cyberpunk body {
+    background: #241b2f;
+    @apply font-mono;
+}
+
+.cyberpunk .neon-pink {
+    color: #fc199a;
+    text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #fc199a, 0 0 2px #fc199a;
+}
+
+.cyberpunk .neon-cyan {
+    color: #61e2ff;
+    text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
+}

@@ -1,5 +1,6 @@
 ---
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
     { href: "/#services", label: "Services" },
@@ -20,6 +21,8 @@ const navLinks = [
                     {link.label}
                 </a>
             ))}
+            
+            <ThemeToggle client:load />
 
             <a
                 href="mailto:partnerships@oceanparkdigital.com"
@@ -30,10 +33,13 @@ const navLinks = [
         </nav>
 
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-white" aria-label="Toggle menu">
-            <Menu className="w-6 h-6 menu-icon" />
-            <X className="w-6 h-6 close-icon hidden" />
-        </button>
+        <div class="flex items-center gap-4 md:hidden">
+            <ThemeToggle client:load />
+            <button id="mobile-menu-btn" class="p-2 text-white" aria-label="Toggle menu">
+                <Menu className="w-6 h-6 menu-icon" />
+                <X className="w-6 h-6 close-icon hidden" />
+            </button>
+        </div>
     </div>
 
     <!-- Mobile Menu Overlay -->

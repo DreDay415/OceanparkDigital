@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import AugmentedCodeFrame from '../components/AugmentedCodeFrame.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import AIStrategist from '../components/AIStrategist';
+---
+
+<Layout title="Oceanpark Digital | Premium Growth Solutions">
+	<Header />
+	<main>
+		<Hero />
+		<Services />
+        
+        {/* AI Strategist Section - Only truly thematic in Cyberpunk mode, but available for interaction */}
+        <section id="ai-strategist" class="py-24 bg-slate-900 border-y border-white/5 relative overflow-hidden theme-section">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(147,51,234,0.1),transparent)] ai-bg-glow" />
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold font-display text-white mb-6 ai-title">
+                        Consult the <span class="text-cyan-400 ai-span">Cyber-Strategist</span>
+                    </h2>
+                    <p class="text-lg text-slate-400 ai-description">
+                        Ask our powered with zen strategist any question about your digital growth. 
+                        From SEO tactics to AI implementation plans.
+                    </p>
+                </div>
+                
+                <AIStrategist client:visible />
+            </div>
+        </section>
+
+		<AugmentedCodeFrame />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+    /* Cyberpunk Overrides for AI Section */
+    :global(.cyberpunk) #ai-strategist {
+        background-color: #241b2f !important;
+    }
+    
+    :global(.cyberpunk) .ai-title {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+        text-shadow: 0 0 10px rgba(252, 25, 154, 0.5) !important;
+    }
+
+    :global(.cyberpunk) .ai-span {
+        color: #61e2ff !important;
+        text-shadow: 0 0 10px rgba(97, 226, 255, 0.5) !important;
+    }
+
+    :global(.cyberpunk) .ai-description {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+    }
+</style>

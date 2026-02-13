@@ -19,7 +19,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth cyberpunk">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -32,5 +32,12 @@ const {
 	<body class="flex min-h-screen flex-col bg-slate-900 text-slate-50 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden font-sans">
         <StarBackground />
 		<slot />
+        <script is:inline>
+            // Prevent theme flash on load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.documentElement.classList.add('cyberpunk');
+            }
+        </script>
 	</body>
 </html>

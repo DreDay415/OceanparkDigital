@@ -1,0 +1,108 @@
+---
+---
+
+<section id="hero" class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-transparent transition-colors duration-500">
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto space-y-8 pt-20 animate-fade-in-up">
+        <h1 class="font-sans tracking-[0.2em] uppercase text-white drop-shadow-sm theme-text-transition">
+            <span class="block text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 hero-title-1">DELETE OUTERSPACE.</span>
+            <span class="block text-xl md:text-2xl lg:text-3xl font-light text-slate-300 hero-title-2">Bring Back Inner Space.</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-slate-100 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md delay-200 animate-fade-in-up opacity-0 fill-mode-forwards">
+            <span class="text-cyan-200 font-medium hero-tagline">Build for Impact</span>
+        </p>
+
+        <div class="flex gap-4 justify-center items-center delay-400 animate-fade-in-up opacity-0 fill-mode-forwards">
+            <a
+                href="mailto:partnerships@oceanparkdigital.com"
+                class="px-8 py-4 rounded-full bg-white text-[#543ab7] font-bold text-lg hover:bg-cyan-50 transition-all shadow-lg hover:scale-105 active:scale-95 hero-button-primary"
+            >
+                Let's Connect
+            </a>
+            <a
+                href="/#services"
+                class="px-8 py-4 rounded-full border border-white/30 text-white font-medium text-lg hover:bg-white/10 transition-all backdrop-blur-sm hero-button-secondary"
+            >
+                Our Services
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 pointer-events-none drop-shadow-md animate-bounce">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+    </div>
+</section>
+
+<style>
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+    .delay-400 {
+        animation-delay: 0.4s;
+    }
+    .fill-mode-forwards {
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Cyberpunk Overrides */
+    :global(.cyberpunk) {
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+    }
+    
+    :global(.cyberpunk) .hero-title-1 {
+        color: #fc199a !important;
+        text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #fc199a, 0 0 2px #fc199a !important;
+        font-weight: bold !important;
+        font-style: italic !important;
+    }
+
+    :global(.cyberpunk) .hero-title-2 {
+        color: #61e2ff !important;
+        text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633 !important;
+        font-weight: bold !important;
+    }
+
+    :global(.cyberpunk) .hero-tagline {
+        color: #ffcc00 !important;
+        text-shadow: 0 0 2px #100c0f, 0 0 3px #ffaa0099, 0 0 5px #ffaa0099, 0 0 10px #ffaa0099 !important;
+        font-weight: bold !important;
+        font-style: italic !important;
+    }
+
+    :global(.cyberpunk) .hero-button-primary {
+        background: transparent !important;
+        border: 2px solid #fc199a !important;
+        color: #fc199a !important;
+        border-radius: 4px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.2em !important;
+        box-shadow: 0 0 15px rgba(252,25,154,0.3) !important;
+    }
+
+    :global(.cyberpunk) .hero-button-secondary {
+        background: transparent !important;
+        border: 2px solid #61e2ff !important;
+        color: #61e2ff !important;
+        border-radius: 4px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.2em !important;
+        box-shadow: 0 0 15px rgba(97,226,255,0.3) !important;
+    }
+</style>
