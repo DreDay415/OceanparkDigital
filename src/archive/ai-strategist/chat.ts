@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request }) => {
         });
 
         const result = await model.generateContent(message);
-        const response = await result.response;
+        const response = result.response;
         const reply = response.text();
 
         return new Response(JSON.stringify({ reply }), {

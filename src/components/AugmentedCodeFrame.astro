@@ -11,9 +11,27 @@ import 'codemirror/lib/codemirror.css';
     </div>
     <section class="augs bg" data-augmented-ui>
       <button class="dots" id="mode-toggle" title="(click to change) Current Mode: css"></button>
-      <input class="title" value="propjockey.io">
+      <input class="title" value="Popcloud.space">
       <div class="code highcontrast-dark">
-        <textarea id="code"></textarea>
+        <textarea id="code">{`@keyframes cast-bit-to-space-toggle {
+  to { --space-toggle: ; }
+}
+
+:where(.cbtst) {
+  --cbtst-animation: cast-bit-to-space-toggle
+    1ms linear both var(--bit, 0);
+  animation: var(--cbtst-animation);
+}
+
+/* usage */
+.my-el.cbtst {
+  --bit: 1; /* provide input value of 0 or 1 */
+  /* var(--space-toggle) is the output */
+  
+  --bg: var(--space-toggle) lime;
+  background: var(--bg, red);
+  /* 1 = lime, 0 = red */
+}`}</textarea>
       </div>
     </section>
   </div>
@@ -36,68 +54,53 @@ import 'codemirror/lib/codemirror.css';
     observer.observe(container);
 
     async function initEditor() {
-      // @ts-ignore - Dynamic import to save ~250kB on initial load
-      const { default: CodeMirror } = await import('codemirror');
-      await import('codemirror/mode/css/css.js');
-      await import('codemirror/mode/javascript/javascript.js');
-      await import('codemirror/mode/markdown/markdown.js');
-      await import('codemirror/mode/htmlmixed/htmlmixed.js');
+      try {
+        // @ts-ignore - Dynamic import to save ~250kB on initial load
+        const { default: CodeMirror } = await import('codemirror');
+        // @ts-ignore
+        await import('codemirror/mode/css/css.js');
+        // @ts-ignore
+        await import('codemirror/mode/javascript/javascript.js');
+        // @ts-ignore
+        await import('codemirror/mode/markdown/markdown.js');
+        // @ts-ignore
+        await import('codemirror/mode/htmlmixed/htmlmixed.js');
 
-      // Set default code content
-      const defaultCode = `@keyframes cast-bit-to-space-toggle {
-  to { --space-toggle: ; }
-}
-
-:where(.cbtst) {
-  --cbtst-animation: cast-bit-to-space-toggle
-    1ms linear both var(--bit, 0);
-  animation: var(--cbtst-animation);
-}
-
-/* usage */
-.my-el.cbtst {
-  --bit: 1; /* provide input value of 0 or 1 */
-  /* var(--space-toggle) is the output */
-  
-  --bg: var(--space-toggle) lime;
-  background: var(--bg, red);
-  /* 1 = lime, 0 = red */
-}`;
-      
-      textArea.value = defaultCode;
-      
-      const editor = CodeMirror.fromTextArea(textArea, {
-        lineNumbers: true,
-        matchBrackets: true,
-        theme: "highcontrast-dark",
-        tabSize: 2,
-        mode: mode,
-        extraKeys: {
-          Tab: function(cm: any) {
-            if (cm.somethingSelected()) cm.indentSelection("add");
-            else cm.replaceSelection("  ", "end");
+        const editor = CodeMirror.fromTextArea(textArea, {
+          lineNumbers: true,
+          matchBrackets: true,
+          theme: "highcontrast-dark",
+          tabSize: 2,
+          mode: mode,
+          extraKeys: {
+            Tab: function(cm: any) {
+              if (cm.somethingSelected()) cm.indentSelection("add");
+              else cm.replaceSelection("  ", "end");
+            }
           }
-        }
-      } as any);
+        } as any);
 
-      const ro = new ResizeObserver(() => {
-        editor.setSize(x.offsetWidth, x.offsetHeight);
-      });
-      ro.observe(container);
-
-      const btn = document.getElementById('mode-toggle');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          mode = {
-            css: "javascript",
-            javascript: "markdown",
-            markdown: "htmlmixed",
-            htmlmixed: "css"
-          }[mode as "css" | "javascript" | "markdown" | "htmlmixed"] || "css";
-          
-          btn.title = `(click to change) Current Mode: ${mode}`;
-          editor.setOption("mode", mode);
+        const ro = new ResizeObserver(() => {
+          editor.setSize(x.offsetWidth, x.offsetHeight);
         });
+        ro.observe(container);
+
+        const btn = document.getElementById('mode-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            mode = {
+              css: "javascript",
+              javascript: "markdown",
+              markdown: "htmlmixed",
+              htmlmixed: "css"
+            }[mode as "css" | "javascript" | "markdown" | "htmlmixed"] || "css";
+            
+            btn.title = `(click to change) Current Mode: ${mode}`;
+            editor.setOption("mode", mode);
+          });
+        }
+      } catch (err) {
+        console.error("Failed to load CodeMirror:", err);
       }
     }
   }
