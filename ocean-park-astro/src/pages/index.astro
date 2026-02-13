@@ -6,13 +6,33 @@ import Services from '../components/Services.astro';
 import AugmentedCodeFrame from '../components/AugmentedCodeFrame.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import AIStrategist from '../components/AIStrategist';
 ---
 
-<Layout title="Ocean Park Digital | Premium Growth Solutions">
+<Layout title="Oceanpark Digital | Premium Growth Solutions">
 	<Header />
 	<main>
 		<Hero />
 		<Services />
+        
+        {/* AI Strategist Section */}
+        <section id="ai-strategist" class="py-24 bg-slate-900 border-y border-white/5 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(147,51,234,0.1),transparent)]" />
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold font-display text-white mb-6">
+                        Consult the <span class="text-cyan-400">Cyber-Strategist</span>
+                    </h2>
+                    <p class="text-lg text-slate-400">
+                        Ask our powered with zen strategist any question about your digital growth. 
+                        From SEO tactics to AI implementation plans.
+                    </p>
+                </div>
+                
+                <AIStrategist client:visible />
+            </div>
+        </section>
+
 		<AugmentedCodeFrame />
 		<Contact />
 	</main>

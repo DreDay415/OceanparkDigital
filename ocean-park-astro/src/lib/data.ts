@@ -1,40 +1,62 @@
-import { Code, Rocket, Search, ShoppingCart, Workflow, Globe2 } from 'lucide-react';
+import { Layers, Zap, Leaf, ShieldCheck, Database, Cpu } from 'lucide-react';
 
 export const services = [
     {
-        title: 'SEO Optimization',
-        description:
-            'We optimize your website to rank higher for the keywords your clients are actively searching for, driving organic growth.',
-        icon: Search,
+        title: 'The Infrastructure Architect',
+        description: 'Building the unshakeable skeleton for global-scale applications.',
+        skills: 'Cloud Out of the Box, Object Storage, 0 Auth Permissions.',
+        metric: '99.99% Uptime Architecture with Zero-Trust Security protocols as the standard.',
+        icon: Layers,
     },
     {
-        title: 'Paid Media Campaigns',
-        description: 'We strategize, test, and optimize paid campaigns to maximize your ROAS and CTR.',
-        icon: Rocket,
+        title: 'High-Velocity Data Engineer',
+        description: 'Transforming raw chaos into a high-performance engine of actionable intelligence.',
+        skills: 'Data Harvesting, Data Wrangler, High-Frequency Monitoring.',
+        metric: 'Processing millions of pings and data points per hour with sub-millisecond latency.',
+        icon: Zap,
     },
     {
-        title: 'Google Business Profile',
-        description: 'We manage and optimize your Google Business Profile to boost local visibility.',
-        icon: Globe2,
+        title: 'Sustainability Systems Lead',
+        description: 'Engineering the future of high-performance computing with a net-zero footprint.',
+        skills: 'Green Tech Solutions, Optimized Cloud Infrastructure.',
+        metric: 'Reducing server-side carbon overhead by up to 40% through intelligent resource allocation.',
+        icon: Leaf,
     },
     {
-        title: 'Website Development',
-        description: 'From landing pages to full-scale websites, we bring your brand to life.',
-        icon: Code,
+        title: 'Identity & Access Strategist',
+        description: 'Hardening the digital perimeter through sophisticated permission logic.',
+        skills: '0 Auth Permissions Specialist, Security-First Cloud Deployments.',
+        metric: 'Enterprise-grade Auth implementations that eliminate 99% of unauthorized access vectors.',
+        icon: ShieldCheck,
     },
     {
-        title: 'AI Integrations',
-        description: 'Seamlessly connect e-commerce with fulfillment, accounting, and more.',
-        icon: Workflow,
+        title: 'Infinite Storage Specialist',
+        description: 'Architecting "Liquid Data" solutions that scale without limits.',
+        skills: 'Object Storage Specialist, Cloud Out of the Box.',
+        metric: 'Petabyte-scale storage environments with instant retrieval and multi-region redundancy.',
+        icon: Database,
     },
     {
-        title: 'Digital Commerce',
-        description: 'We help businesses monetize their domains and digital presence.',
-        icon: ShoppingCart,
+        title: 'Turnkey Cloud Solutions Director',
+        description: 'Deploying fully managed, enterprise environments instantly.',
+        skills: 'Cloud Out of the Box, Integrated Security & Storage.',
+        metric: 'From architectural blueprint to live deployment in under 60 seconds.',
+        icon: Cpu,
     },
 ];
 
 export const blogPosts = [
+    {
+        id: 9,
+        title: "About Oceanpark Digital: Your Partner in Digital Growth",
+        slug: "about-oceanpark-digital",
+        excerpt: "Oceanpark Digital delivers premium digital growth solutions for ambitious brands through SEO, paid media, web development, and AI integrations.",
+        content: "At Oceanpark Digital, we believe in deleting the noise of outerspace and bringing back inner space—focusing on what truly matters for your digital success.\n\nFounded on the principle that every business deserves cinematic web experiences and data-driven growth strategies, Oceanpark Digital has become the trusted partner for ambitious brands looking to dominate their digital landscape.\n\n## Our Approach\n\nWe don't believe in one-size-fits-all solutions. Every client receives a customized strategy tailored to their unique goals, audience, and competitive landscape. Our methodology combines technical expertise with creative excellence, ensuring your digital presence not only looks stunning but performs exceptionally.\n\n## Core Services\n\n**SEO Optimization**: We optimize your website to rank higher for the keywords your clients are actively searching for, driving organic growth that compounds over time. Our SEO strategies are built on technical excellence, quality content, and authoritative link building.\n\n**Paid Media Campaigns**: From Google Ads to social media advertising, we strategize, test, and optimize paid campaigns to maximize your ROAS and CTR. Every dollar spent is tracked, measured, and optimized for performance.\n\n**Website Development**: We create cinematic web experiences that captivate visitors and convert them into customers. From landing pages to full-scale e-commerce platforms, we bring your brand vision to life with cutting-edge technology and design.\n\n**Google Business Profile Management**: We manage and optimize your Google Business Profile to boost local visibility, attract more customers, and dominate your local market.\n\n**AI Integrations**: Leverage the power of artificial intelligence to automate workflows, enhance customer experiences, and gain competitive advantages. We seamlessly integrate AI tools that deliver measurable business value.\n\n**Digital Commerce Solutions**: We help businesses monetize their domains and digital presence through strategic e-commerce implementations, payment integrations, and conversion optimization.\n\n## Why Oceanpark Digital?\n\n**Data-Driven Results**: We're obsessed with metrics. Every campaign is tracked, analyzed, and optimized based on real performance data. We don't guess—we measure.\n\n**Technical Excellence**: Our team stays at the forefront of digital marketing technology, ensuring you benefit from the latest tools, platforms, and strategies.\n\n**Transparent Communication**: You'll always know what we're working on, what results we're achieving, and where your investment is going. Regular reporting and open communication are standard.\n\n**Growth Partnership**: We're not just vendors—we're growth partners invested in your long-term success. Your wins are our wins.\n\n## Our Philosophy\n\nDelete outerspace. Bring back inner space.\n\nIn a world cluttered with digital noise, we focus on what truly drives results: authentic connections, compelling content, and strategic execution. We cut through the hype and deliver solutions that move the needle for your business.\n\n## Ready to Scale?\n\nWhether you're a startup looking to establish your digital presence or an established brand ready to scale, Oceanpark Digital has the expertise, creativity, and dedication to help you achieve extraordinary growth.\n\nOur clients don't just get marketing services—they get a competitive advantage. They get a team that cares as much about their success as they do. They get results that matter.\n\nJoin the leading brands trusting Oceanpark Digital for their growth. Let's create something extraordinary together.\n\n**Get in touch today** and discover how we can transform your digital presence into a growth engine that delivers measurable ROI month after month.",
+        author: "Oceanpark Digital Team",
+        date: "2024-12-15",
+        category: "Company",
+        readTime: "6 min"
+    },
     {
         id: 1,
         title: "How to Create a Digital Marketing Strategy That Actually Converts",

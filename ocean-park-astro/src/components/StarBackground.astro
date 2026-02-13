@@ -13,7 +13,7 @@ const shadowsMedium = generateBoxShadow(200);
 const shadowsBig = generateBoxShadow(100);
 ---
 
-<div id="star-background" class="fixed inset-0 overflow-hidden pointer-events-none opacity-0 transition-opacity duration-1000 z-0 bg-transparent">
+<div id="star-background" class="fixed inset-0 overflow-hidden pointer-events-none opacity-100 transition-opacity duration-1000 z-0 bg-transparent">
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
@@ -22,11 +22,6 @@ const shadowsBig = generateBoxShadow(100);
 <style define:vars={{ shadowsSmall, shadowsMedium, shadowsBig }}>
   #star-background {
       background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-  }
-
-  /* Make sure the background is visible when the parent has the class */
-  :global(.cyberpunk) #star-background {
-      opacity: 1;
   }
 
   #stars {
