@@ -1,112 +1,117 @@
 import { useState } from 'react';
-import { db } from '../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 interface EmailCollectorProps {
-    placeholder?: string;
-    buttonText?: string;
-    showName?: boolean;
+  placeholder?: string;
+  buttonText?: string;
+  showName?: boolean;
 }
 
 export default function EmailCollector({
-    placeholder = "Enter your email",
-    buttonText = "Join Waitlist",
-    showName = false
+  placeholder = "Enter your email",
+  buttonText = "Join Waitlist",
+  showName = false
 }: EmailCollectorProps) {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-    const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-        if (!email || (showName && !name)) {
-            setStatus('error');
-            setMessage('Please fill in all fields');
-            return;
-        }
+    if (!email || (showName && !name)) {
+      setStatus('error');
+      setMessage('Please fill in all fields');
+      return;
+    }
 
-        setStatus('loading');
+    setStatus('loading');
 
-        try {
-            await addDoc(collection(db, 'emails'), {
-                email,
-                name: showName ? name : null,
-                timestamp: serverTimestamp(),
-                source: 'contact_form'
-            });
+    try {
+      const response = await fetch('/api/submit-waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name: showName ? name : null,
+          source: 'contact_form'
+        }),
+      });
 
-            setStatus('success');
-            setMessage('🎉 Thanks for joining! We\'ll be in touch soon.');
-            setEmail('');
-            setName('');
+      if (!response.ok) throw new Error('Failed to submit');
 
-            // Reset after 5 seconds
-            setTimeout(() => {
-                setStatus('idle');
-                setMessage('');
-            }, 5000);
+      setStatus('success');
+      setMessage('🎉 Thanks for joining! We\'ll be in touch soon.');
+      setEmail('');
+      setName('');
 
-        } catch (error) {
-            console.error('Error adding email:', error);
-            setStatus('error');
-            setMessage('Something went wrong. Please try again.');
+      // Reset after 5 seconds
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 5000);
 
-            setTimeout(() => {
-                setStatus('idle');
-                setMessage('');
-            }, 5000);
-        }
-    };
+    } catch (error) {
+      console.error('Error adding email:', error);
+      setStatus('error');
+      setMessage('Something went wrong. Please try again.');
 
-    return (
-        <form onSubmit={handleSubmit} className="email-collector">
-            <div className="form-fields">
-                {showName && (
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Your name"
-                        className="email-input"
-                        disabled={status === 'loading'}
-                    />
-                )}
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 5000);
+    }
+  };
 
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={placeholder}
-                    className="email-input"
-                    disabled={status === 'loading'}
-                    required
-                />
+  return (
+    <form onSubmit={handleSubmit} className="email-collector">
+      <div className="form-fields">
+        {showName && (
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            className="email-input"
+            disabled={status === 'loading'}
+          />
+        )}
 
-                <button
-                    type="submit"
-                    className="submit-btn"
-                    disabled={status === 'loading'}
-                >
-                    {status === 'loading' ? (
-                        <>
-                            <span className="spinner"></span>
-                            Submitting...
-                        </>
-                    ) : (
-                        buttonText
-                    )}
-                </button>
-            </div>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder={placeholder}
+          className="email-input"
+          disabled={status === 'loading'}
+          required
+        />
 
-            {message && (
-                <div className={`message ${status === 'success' ? 'success' : 'error'}`}>
-                    {message}
-                </div>
-            )}
+        <button
+          type="submit"
+          className="submit-btn"
+          disabled={status === 'loading'}
+        >
+          {status === 'loading' ? (
+            <>
+              <span className="spinner"></span>
+              Submitting...
+            </>
+          ) : (
+            buttonText
+          )}
+        </button>
+      </div>
 
-            <style>{`
+      {message && (
+        <div className={`message ${status === 'success' ? 'success' : 'error'}`}>
+          {message}
+        </div>
+      )}
+
+      <style>{`
         .email-collector {
           width: 100%;
           max-width: 600px;
@@ -238,6 +243,6 @@ export default function EmailCollector({
           }
         }
       `}</style>
-        </form>
-    );
+    </form>
+  );
 }

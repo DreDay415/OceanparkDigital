@@ -5,7 +5,7 @@ import 'codemirror/lib/codemirror.css';
 
 <div class="code-frame-wrapper">
   <div class="code-container">
-    <input class="sig" value="// Jane 💜">
+    <input class="sig" value="// Jarvis 👽">
     <div class="glow-container">
       <div class="augs" data-augmented-ui></div>
     </div>
@@ -20,19 +20,31 @@ import 'codemirror/lib/codemirror.css';
 </div>
 
 <script>
-  import CodeMirror from 'codemirror';
-  import 'codemirror/mode/css/css.js';
-  import 'codemirror/mode/javascript/javascript.js';
-  import 'codemirror/mode/markdown/markdown.js';
-  import 'codemirror/mode/htmlmixed/htmlmixed.js';
-  // Attempt to import scrollbar addon if available, otherwise just ignore or use native
-  // import 'codemirror/addon/scroll/simplescrollbars.js'; 
-
   let mode = "css";
   const textArea = document.getElementById('code') as HTMLTextAreaElement;
-  
-  // Set default code content
-  const defaultCode = `@keyframes cast-bit-to-space-toggle {
+  const x = document.querySelector(".code") as HTMLElement;
+  const container = document.querySelector(".code-container") as HTMLElement;
+
+  if (textArea && x && container) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        initEditor();
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(container);
+
+    async function initEditor() {
+      // @ts-ignore - Dynamic import to save ~250kB on initial load
+      const { default: CodeMirror } = await import('codemirror');
+      await import('codemirror/mode/css/css.js');
+      await import('codemirror/mode/javascript/javascript.js');
+      await import('codemirror/mode/markdown/markdown.js');
+      await import('codemirror/mode/htmlmixed/htmlmixed.js');
+
+      // Set default code content
+      const defaultCode = `@keyframes cast-bit-to-space-toggle {
   to { --space-toggle: ; }
 }
 
@@ -51,49 +63,42 @@ import 'codemirror/lib/codemirror.css';
   background: var(--bg, red);
   /* 1 = lime, 0 = red */
 }`;
-  
-  if (textArea) {
-    textArea.value = defaultCode;
-    
-    const editor = CodeMirror.fromTextArea(textArea, {
-      lineNumbers: true,
-      styleActiveLine: true,
-      matchBrackets: true,
-      // scrollbarStyle: "overlay", // Disabling overlay unless we are sure we have the addon
-      theme: "highcontrast-dark",
-      tabSize: 2,
-      mode: mode,
-      extraKeys: {
-        Tab: function(cm) {
-          if (cm.somethingSelected()) cm.indentSelection("add");
-          else cm.replaceSelection("  ", "end");
+      
+      textArea.value = defaultCode;
+      
+      const editor = CodeMirror.fromTextArea(textArea, {
+        lineNumbers: true,
+        matchBrackets: true,
+        theme: "highcontrast-dark",
+        tabSize: 2,
+        mode: mode,
+        extraKeys: {
+          Tab: function(cm: any) {
+            if (cm.somethingSelected()) cm.indentSelection("add");
+            else cm.replaceSelection("  ", "end");
+          }
         }
-      }
-    });
+      } as any);
 
-    const x = document.querySelector(".code") as HTMLElement;
-    const container = document.querySelector(".code-container") as HTMLElement;
-    
-    if (x && container) {
-      const ro = new ResizeObserver(entries => {
+      const ro = new ResizeObserver(() => {
         editor.setSize(x.offsetWidth, x.offsetHeight);
       });
       ro.observe(container);
-    }
 
-    const btn = document.getElementById('mode-toggle');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        mode = {
-          css: "javascript",
-          javascript: "markdown",
-          markdown: "htmlmixed",
-          htmlmixed: "css"
-        }[mode] || "css";
-        
-        btn.title = `(click to change) Current Mode: ${mode}`;
-        editor.setOption("mode", mode);
-      });
+      const btn = document.getElementById('mode-toggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          mode = {
+            css: "javascript",
+            javascript: "markdown",
+            markdown: "htmlmixed",
+            htmlmixed: "css"
+          }[mode as "css" | "javascript" | "markdown" | "htmlmixed"] || "css";
+          
+          btn.title = `(click to change) Current Mode: ${mode}`;
+          editor.setOption("mode", mode);
+        });
+      }
     }
   }
 </script>

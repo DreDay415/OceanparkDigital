@@ -1,0 +1,259 @@
+23:24:48 [@astrojs/node] Enabling sessions with filesystem storage
+23:24:48 [content] Syncing content
+23:24:48 [content] Synced content
+23:24:48 [types] Generated 28ms
+23:24:48 [check] Getting diagnostics for Astro files in /Users/dredog/Downloads/OPEEEZY/OceanparkDigital...
+[96mcyberpunk/augmented-ui-social-media-picture-of-code-thing/dist/script.js[0m:[93m16[0m:[93m31[0m - [93mwarning[0m[90m ts(6133): [0m'entries' is declared but its value is never read.
+
+[7m16[0m const ro = new ResizeObserver(entries => {
+[7m  [0m [93m                              ~~~~~~~[0m
+
+[96mcyberpunk/augmented-ui-social-media-picture-of-code-thing/src/script.js[0m:[93m16[0m:[93m31[0m - [93mwarning[0m[90m ts(6133): [0m'entries' is declared but its value is never read.
+
+[7m16[0m const ro = new ResizeObserver(entries => {
+[7m  [0m [93m                              ~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/app/layout.tsx[0m:[93m7[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/utils' or its corresponding type declarations.
+
+[7m7[0m import { cn } from "@/lib/utils";
+[7m [0m [91m                   ~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/layout.tsx[0m:[93m6[0m:[93m30[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/layout/SmoothScroll' or its corresponding type declarations.
+
+[7m6[0m import { SmoothScroll } from "@/components/layout/SmoothScroll";
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/layout.tsx[0m:[93m5[0m:[93m24[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/layout/Footer' or its corresponding type declarations.
+
+[7m5[0m import { Footer } from "@/components/layout/Footer";
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/layout.tsx[0m:[93m4[0m:[93m24[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/layout/Header' or its corresponding type declarations.
+
+[7m4[0m import { Header } from "@/components/layout/Header";
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/app/page.tsx[0m:[93m2[0m:[93m26[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/sections/Services' or its corresponding type declarations.
+
+[7m2[0m import { Services } from "@/components/sections/Services";
+[7m [0m [91m                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/page.tsx[0m:[93m1[0m:[93m22[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/sections/Hero' or its corresponding type declarations.
+
+[7m1[0m import { Hero } from "@/components/sections/Hero";
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/app/blog/page.tsx[0m:[93m27[0m:[93m37[0m - [91merror[0m[90m ts(7006): [0mParameter 'post' implicitly has an 'any' type.
+
+[7m27[0m                     {blogPosts.map((post) => (
+[7m  [0m [91m                                    ~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/page.tsx[0m:[93m3[0m:[93m22[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/ui/Card' or its corresponding type declarations.
+
+[7m3[0m import { Card } from '@/components/ui/Card';
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/page.tsx[0m:[93m1[0m:[93m27[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/data' or its corresponding type declarations.
+
+[7m1[0m import { blogPosts } from '@/lib/data';
+[7m [0m [91m                          ~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m72[0m:[93m65[0m - [91merror[0m[90m ts(7006): [0mParameter 'index' implicitly has an 'any' type.
+
+[7m72[0m                     {post.content.split('\n\n').map((paragraph, index) => (
+[7m  [0m [91m                                                                ~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m72[0m:[93m54[0m - [91merror[0m[90m ts(7006): [0mParameter 'paragraph' implicitly has an 'any' type.
+
+[7m72[0m                     {post.content.split('\n\n').map((paragraph, index) => (
+[7m  [0m [91m                                                     ~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m26[0m:[93m34[0m - [91merror[0m[90m ts(7006): [0mParameter 'p' implicitly has an 'any' type.
+
+[7m26[0m     const post = blogPosts.find((p) => p.slug === slug);
+[7m  [0m [91m                                 ~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m17[0m:[93m34[0m - [91merror[0m[90m ts(7006): [0mParameter 'p' implicitly has an 'any' type.
+
+[7m17[0m     const post = blogPosts.find((p) => p.slug === slug);
+[7m  [0m [91m                                 ~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m7[0m:[93m27[0m - [91merror[0m[90m ts(7006): [0mParameter 'post' implicitly has an 'any' type.
+
+[7m7[0m     return blogPosts.map((post) => ({
+[7m [0m [91m                          ~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/app/blog/[slug]/page.tsx[0m:[93m1[0m:[93m27[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/data' or its corresponding type declarations.
+
+[7m1[0m import { blogPosts } from '@/lib/data';
+[7m [0m [91m                          ~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/canvas/Ocean.tsx[0m:[93m43[0m:[93m79[0m - [93mwarning[0m[90m ts(6385): [0m'mouse' is deprecated.
+
+[7m43[0m         state.camera.position.lerp(new THREE.Vector3(state.mouse.x * 2, state.mouse.y * 1 + 2, 8), 0.05)
+[7m  [0m [93m                                                                              ~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/canvas/Ocean.tsx[0m:[93m43[0m:[93m60[0m - [93mwarning[0m[90m ts(6385): [0m'mouse' is deprecated.
+
+[7m43[0m         state.camera.position.lerp(new THREE.Vector3(state.mouse.x * 2, state.mouse.y * 1 + 2, 8), 0.05)
+[7m  [0m [93m                                                           ~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/canvas/Ocean.tsx[0m:[93m3[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m3[0m import React, { useRef, } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/layout/Footer.tsx[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'motion' is declared but its value is never read.
+
+[7m4[0m import { motion } from 'framer-motion';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/layout/Footer.tsx[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m2[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/layout/Header.tsx[0m:[93m7[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/utils' or its corresponding type declarations.
+
+[7m7[0m import { cn } from '@/lib/utils'; // Not strictly used here but good practice
+[7m [0m [91m                   ~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/layout/Header.tsx[0m:[93m7[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'cn' is declared but its value is never read.
+
+[7m7[0m import { cn } from '@/lib/utils'; // Not strictly used here but good practice
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/layout/Header.tsx[0m:[93m3[0m:[93m27[0m - [93mwarning[0m[90m ts(6133): [0m'useEffect' is declared but its value is never read.
+
+[7m3[0m import React, { useState, useEffect } from 'react';
+[7m [0m [93m                          ~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/layout/Header.tsx[0m:[93m3[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m3[0m import React, { useState, useEffect } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/sections/Hero.tsx[0m:[93m6[0m:[93m26[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/data' or its corresponding type declarations.
+
+[7m6[0m import { services } from '@/lib/data';
+[7m [0m [91m                         ~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Hero.tsx[0m:[93m4[0m:[93m23[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/canvas/Ocean' or its corresponding type declarations.
+
+[7m4[0m import { Ocean } from '@/components/canvas/Ocean';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Hero.tsx[0m:[93m6[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'services' is declared but its value is never read.
+
+[7m6[0m import { services } from '@/lib/data';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/sections/Services.tsx[0m:[93m55[0m:[93m45[0m - [91merror[0m[90m ts(7006): [0mParameter 'index' implicitly has an 'any' type.
+
+[7m55[0m                     {services.map((service, index) => {
+[7m  [0m [91m                                            ~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Services.tsx[0m:[93m55[0m:[93m36[0m - [91merror[0m[90m ts(7006): [0mParameter 'service' implicitly has an 'any' type.
+
+[7m55[0m                     {services.map((service, index) => {
+[7m  [0m [91m                                   ~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Services.tsx[0m:[93m4[0m:[93m22[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/components/ui/Card' or its corresponding type declarations.
+
+[7m4[0m import { Card } from '@/components/ui/Card';
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Services.tsx[0m:[93m3[0m:[93m26[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/data' or its corresponding type declarations.
+
+[7m3[0m import { services } from '@/lib/data';
+[7m [0m [91m                         ~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/sections/Services.tsx[0m:[93m7[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Link' is declared but its value is never read.
+
+[7m7[0m import Link from 'next/link';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/ui/Button.tsx[0m:[93m37[0m:[93m14[0m - [91merror[0m[90m ts(2322): [0mType '{ custom?: any; value?: string | number | readonly string[] | undefined; form?: string | undefined; slot?: string | undefined; style?: MotionStyle | undefined; title?: string | undefined; ... 342 more ...; className: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Types of property 'key' are incompatible.
+    Type 'import("/Users/dredog/Downloads/OPEEEZY/OceanparkDigital/legacy_backup/ocean-park-next/node_modules/@types/react/index").Key | null | undefined' is not assignable to type 'React.Key | null | undefined'.
+      Type 'unique symbol' is not assignable to type 'Key | null | undefined'.
+
+[7m37[0m             <motion.button
+[7m  [0m [91m             ~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Button.tsx[0m:[93m6[0m:[93m22[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@radix-ui/react-slot' or its corresponding type declarations.
+
+[7m6[0m import { Slot } from "@radix-ui/react-slot"; // Oops, I didn't install radix-ui, I'll stick to standard props
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Button.tsx[0m:[93m5[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/utils' or its corresponding type declarations.
+
+[7m5[0m import { cn } from "@/lib/utils";
+[7m [0m [91m                   ~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Button.tsx[0m:[93m4[0m:[93m18[0m - [91merror[0m[90m ts(1484): [0m'HTMLMotionProps' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+
+[7m4[0m import { motion, HTMLMotionProps } from "framer-motion";
+[7m [0m [91m                 ~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Button.tsx[0m:[93m6[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Slot' is declared but its value is never read.
+
+[7m6[0m import { Slot } from "@radix-ui/react-slot"; // Oops, I didn't install radix-ui, I'll stick to standard props
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/ocean-park-next/src/components/ui/Card.tsx[0m:[93m9[0m:[93m10[0m - [91merror[0m[90m ts(2322): [0mType '{ custom?: any; slot?: string | undefined; style?: MotionStyle | undefined; title?: string | undefined; animate?: boolean | TargetAndTransition | VariantLabels | LegacyAnimationControls | undefined; ... 333 more ...; className: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Types of property 'key' are incompatible.
+    Type 'import("/Users/dredog/Downloads/OPEEEZY/OceanparkDigital/legacy_backup/ocean-park-next/node_modules/@types/react/index").Key | null | undefined' is not assignable to type 'React.Key | null | undefined'.
+      Type 'unique symbol' is not assignable to type 'Key | null | undefined'.
+
+[7m9[0m         <motion.div
+[7m [0m [91m         ~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Card.tsx[0m:[93m5[0m:[93m18[0m - [91merror[0m[90m ts(1484): [0m'HTMLMotionProps' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+
+[7m5[0m import { motion, HTMLMotionProps } from "framer-motion";
+[7m [0m [91m                 ~~~~~~~~~~~~~~~[0m
+[96mlegacy_backup/ocean-park-next/src/components/ui/Card.tsx[0m:[93m4[0m:[93m20[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@/lib/utils' or its corresponding type declarations.
+
+[7m4[0m import { cn } from "@/lib/utils";
+[7m [0m [91m                   ~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/src/App.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useEffect, useState } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mlegacy_backup/src/components/BlogList.tsx[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m ts(1484): [0m'BlogPost' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+
+[7m2[0m import { BlogPost } from '../types/blog';
+[7m [0m [91m         ~~~~~~~~[0m
+
+[96mlegacy_backup/src/components/BlogPost.tsx[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m ts(1484): [0m'BlogPost' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+
+[7m2[0m import { BlogPost as BlogPostType } from '../types/blog';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/src/components/Services.tsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/src/components/Waves.tsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96mlegacy_backup/src/pages/Home.tsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/archive/ai-strategist/chat.ts[0m:[93m22[0m:[93m26[0m - [93mwarning[0m[90m ts(80007): [0m'await' has no effect on the type of this expression.
+
+[7m22[0m         const response = await result.response;
+[7m  [0m [93m                         ~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/AugmentedCodeFrame.astro[0m:[93m60[0m:[93m7[0m - [91merror[0m[90m ts(2353): [0mObject literal may only specify known properties, and 'styleActiveLine' does not exist in type 'EditorConfiguration'.
+
+[7m60[0m       styleActiveLine: true,
+[7m  [0m [91m      ~~~~~~~~~~~~~~~[0m
+[96msrc/components/AugmentedCodeFrame.astro[0m:[93m78[0m:[93m37[0m - [93mwarning[0m[90m ts(6133): [0m'entries' is declared but its value is never read.
+
+[7m78[0m       const ro = new ResizeObserver(entries => {
+[7m  [0m [93m                                    ~~~~~~~[0m
+
+[96msrc/components/EmailCollector.tsx[0m:[93m21[0m:[93m42[0m - [93mwarning[0m[90m ts(6385): [0m'FormEvent' is deprecated.
+
+[7m21[0m     const handleSubmit = async (e: React.FormEvent) => {
+[7m  [0m [93m                                         ~~~~~~~~~[0m
+
+[96msrc/components/ThemeToggle.tsx[0m:[93m2[0m:[93m22[0m - [93mwarning[0m[90m ts(6133): [0m'ToggleRight' is declared but its value is never read.
+
+[7m2[0m import { ToggleLeft, ToggleRight, Moon, Sun } from 'lucide-react';
+[7m [0m [93m                     ~~~~~~~~~~~[0m
+[96msrc/components/ThemeToggle.tsx[0m:[93m2[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'ToggleLeft' is declared but its value is never read.
+
+[7m2[0m import { ToggleLeft, ToggleRight, Moon, Sun } from 'lucide-react';
+[7m [0m [93m         ~~~~~~~~~~[0m
+[96msrc/components/ThemeToggle.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useEffect, useState } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+Result (58 files): 
+- 32 errors
+- 0 warnings
+- 23 hints
+
