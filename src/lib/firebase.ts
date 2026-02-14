@@ -1,7 +1,6 @@
-import { initializeApp, getApps, type FirebaseApp } from 'firebase/app';
-import { getFirestore, type Firestore } from 'firebase/firestore';
-import { getAnalytics, type Analytics } from 'firebase/analytics';
-import { getAuth, type Auth } from 'firebase/auth';
+// No top-level firebase imports to ensure zero bundle overhead until called
+
+let appInstance: any = null;
 
 const firebaseConfig = {
     apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
@@ -13,21 +12,42 @@ const firebaseConfig = {
     measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+async function getApp() {
+    if (!appInstance) {
+        const { initializeApp, getApps } = await import('firebase/app');
+        appInstance = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+    }
+    return appInstance;
+}
 
-// Export functional getters for services
-export const getFirestoreDb = () => getFirestore(app);
-export const getFirebaseAuth = () => getAuth(app);
-export const getFirebaseAnalytics = () => {
+// Export functional getters for services - now all async
+export const getFirestoreDb = async () => {
+    const app = await getApp();
+    const { getFirestore } = await import('firebase/firestore');
+    return getFirestore(app);
+};
+
+export const getFirebaseAuth = async () => {
+    const app = await getApp();
+    const { getAuth } = await import('firebase/auth');
+    return getAuth(app);
+};
+
+export const getFirebaseAnalytics = async () => {
     if (typeof window !== 'undefined') {
+        const app = await getApp();
+        const { getAnalytics } = await import('firebase/analytics');
         return getAnalytics(app);
     }
     return null;
 };
 
-// Also export raw instances for components that expect them (compat-style but using modular SDK)
-const db = getFirestoreDb();
-const auth = getFirebaseAuth();
+export const getFirebasePerformance = async () => {
+    if (typeof window !== 'undefined') {
+        const app = await getApp();
+        const { getPerformance } = await import('firebase/performance');
+        return getPerformance(app);
+    }
+    return null;
+};
 
-export { app, db, auth };
