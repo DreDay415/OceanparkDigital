@@ -13,25 +13,21 @@ const firebaseConfig = {
     measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase only if it hasn't been initialized yet
-let app: FirebaseApp;
-let db: Firestore;
-let auth: Auth;
-let analytics: Analytics | null = null;
+// Initialize Firebase
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-    db = getFirestore(app);
-    auth = getAuth(app);
-
-    // Analytics only works in browser
+// Export functional getters for services
+export const getFirestoreDb = () => getFirestore(app);
+export const getFirebaseAuth = () => getAuth(app);
+export const getFirebaseAnalytics = () => {
     if (typeof window !== 'undefined') {
-        analytics = getAnalytics(app);
+        return getAnalytics(app);
     }
-} else {
-    app = getApps()[0];
-    db = getFirestore(app);
-    auth = getAuth(app);
-}
+    return null;
+};
 
-export { app, db, auth, analytics };
+// Also export raw instances for components that expect them (compat-style but using modular SDK)
+const db = getFirestoreDb();
+const auth = getFirebaseAuth();
+
+export { app, db, auth };

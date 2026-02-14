@@ -11,8 +11,9 @@ export default function GoogleAuth() {
 
     // Lazy load the observer
     const initAuthListener = async () => {
-      const { auth } = await import('../lib/firebase');
+      const { getFirebaseAuth } = await import('../lib/firebase');
       const { onAuthStateChanged } = await import('firebase/auth');
+      const auth = getFirebaseAuth();
       unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
       });
@@ -28,10 +29,12 @@ export default function GoogleAuth() {
 
     try {
       // Only load these when the user clicks
-      const { auth, db } = await import('../lib/firebase');
+      const { getFirebaseAuth, getFirestoreDb } = await import('../lib/firebase');
       const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
       const { doc, setDoc, serverTimestamp } = await import('firebase/firestore');
 
+      const auth = getFirebaseAuth();
+      const db = getFirestoreDb();
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
@@ -57,8 +60,9 @@ export default function GoogleAuth() {
 
   const handleSignOut = async () => {
     try {
-      const { auth } = await import('../lib/firebase');
+      const { getFirebaseAuth } = await import('../lib/firebase');
       const { signOut } = await import('firebase/auth');
+      const auth = getFirebaseAuth();
       await signOut(auth);
       console.log('User signed out');
     } catch (err: any) {
